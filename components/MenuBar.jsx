@@ -11,7 +11,6 @@ function MenuBar() {
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-    const [hoveredIcon, setHoveredIcon] = useState(null);
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen)
@@ -29,47 +28,35 @@ function MenuBar() {
             {isMenuOpen && (
 
                 <div className = {`menuSidebar  ${isMenuOpen ? 'open': ''}`}>
-                    <IoMdArrowRoundBack className="backButton" onClick={toggleMenu} style={{cursor:"pointer"}}/>
+                    <IoMdArrowRoundBack className="backButton" onClick={toggleMenu} style={{cursor:"pointer"}}/>  
+
                     <nav className="navbar">
                         <div className="icon-wrapper">
-                            <MdHome 
-                            className="nav-icon"
-                            onMouseEnter={() => setHoveredIcon('home')} 
-                            onMouseLeave={() => setHoveredIcon(null)} 
-                            />
-                            {hoveredIcon === 'home' && <div className="tooltip">首頁</div>}
+                            <MdHome className="nav-icon"/>
+                        <h2 className="guide">Home</h2>
                         </div>
+
                         <div className="icon-wrapper">
-                            <FaUser 
-                            className="nav-icon"
-                            onMouseEnter={() => setHoveredIcon('user')} 
-                            onMouseLeave={() => setHoveredIcon(null)} 
-                            />
-                            {hoveredIcon === 'user' && <div className="tooltip">使用者</div>}
+                            <FaUser className="nav-icon"/>
+                        <h2 className="guide">Personal</h2>
                         </div>
-                            <IoNotifications 
-                            className="nav-icon"
-                            onMouseEnter={() => setHoveredIcon('notifications')} 
-                            onMouseLeave={() => setHoveredIcon(null)} 
-                            />
-                            {hoveredIcon === 'notifications' && <div className="tooltip">通知</div>}
 
-                            <IoMdSettings 
-                            className="nav-icon"
-                            onMouseEnter={() => setHoveredIcon('settings')} 
-                            onMouseLeave={() => setHoveredIcon(null)} 
-                            />
-                            {hoveredIcon === 'settings' && <div className="tooltip">設定</div>}
+                        <div className="icon-wrapper">
+                            <IoNotifications className="nav-icon"/>
+                            <h2 className="guide">Notification</h2>
+                        </div>    
 
-                            <ImPhoneHangUp 
-                            className="nav-icon"
-                            onMouseEnter={() => setHoveredIcon('phone')} 
-                            onMouseLeave={() => setHoveredIcon(null)} 
-                            />
-                            {hoveredIcon === 'phone' && <div className="tooltip">聯絡我們</div>}
-                            
+                        <div className="icon-wrapper">
+                            <IoMdSettings className="nav-icon"/>
+                            <h2 className="guide">Setting</h2>
+                        </div>
 
-                    </nav>
+                        <div className="icon-wrapper">
+                            <ImPhoneHangUp className="nav-icon" />
+                            <h2 className="guide">Contact</h2>
+                        </div>
+
+                     </nav>
                 </div>
             )}
 

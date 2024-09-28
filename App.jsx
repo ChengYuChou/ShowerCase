@@ -1,9 +1,10 @@
 import React, {useState} from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css'
 import ProductCard from './components/ProductCard'
 import ShoppingCart from './components/ShoppingCart';
 import MenuBar from './components/MenuBar';
-import CardFlip from './components/CardFlip';
+import ProductDetail from './components/ProductDetail';
 
 function App() {
 
@@ -37,12 +38,14 @@ function App() {
     }
   };
 
- const removeAll = () => {
-  setCartItems([]);
- }
+  const removeAll = () => {
+    setCartItems([]);
+  }
 
   
+  
   return (
+  <Router>
     <div className='App'>
       <h1>E-commerce Product Showcase</h1>
       <MenuBar />
@@ -53,7 +56,10 @@ function App() {
       removeAll={removeAll}
       />
       <ProductCard  addToCart={addToCart}/>
+      
+      
     </div>
+  </Router>
   );
 }
 

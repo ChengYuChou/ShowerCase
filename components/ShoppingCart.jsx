@@ -27,7 +27,7 @@ function ShoppingCart({cartItems, addToCart, removeFromCart, removeAll}) {
             <ul>
                 {cartItems.map((item, index) => (
                     <li key={index}>
-                        {item.name} - ${item.price.toFixed(2)} x {item.quantity} = ${item.price.toFixed(2) * item.quantity}
+                        {item.name} - ${item.price.toFixed(2)} x {item.quantity} = ${(item.price * item.quantity).toFixed(2)}
                         <button onClick={() => removeFromCart(item)}>-</button>
                         <button onClick={() => addToCart(item)}>+</button>
                     </li>
